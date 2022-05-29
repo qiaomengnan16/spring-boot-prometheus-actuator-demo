@@ -1,0 +1,19 @@
+server:
+  port: 9091
+#Prometheus springboot监控配置
+spring:
+  application:
+    name: hello-demo
+  main:
+    allow-circular-references: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+    tags:
+      application: ${spring.application.name} # 暴露的数据中添加application label
